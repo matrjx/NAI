@@ -84,7 +84,7 @@ def print_movies(list_movies):
 
 
 if __name__ == '__main__':
-    user = 'Juliusz Orłowski'
+    user = 'Paweł Czapiewski'
     ratings_file = 'movies.json'
     with open(ratings_file, 'r', encoding='utf-8') as f:
         data = json.loads(f.read())
