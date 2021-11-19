@@ -37,6 +37,8 @@ def get_recommendations(dataset, input_user, name_score):
         raise TypeError('Nie można znaleźć ' + input_user + ' w dataset')
     overall_scores = {}
     similarity_scores = {}
+    
+# Tworzenie 
     if name_score == "Pearson":
         for user in [x for x in dataset if x != input_user]:
             similarity_score = pearson_score(dataset, input_user, user)
@@ -50,7 +52,7 @@ def get_recommendations(dataset, input_user, name_score):
     elif name_score == "Euclidean":
         for user in [x for x in dataset if x != input_user]:
             similarity_score = euclidean_score(dataset, input_user, user)
-            if similarity_score == 0:
+            if similarity_score < 0.1:
                 continue
             filtered_list = [x for x in dataset[user] if x not in
                              dataset[input_user] or dataset[input_user][x] == 0]
